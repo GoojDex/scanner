@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Cam Scanner</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cam Scanner</h1>
+        <div class="scanner">
+            <video id="video" width="320" height="240" autoplay></video>
+            <button id="capture">Capture</button>
+        </div>
+        <canvas id="canvas" width="320" height="240"></canvas>
+        <div class="controls">
+            <div class="enhancement">
+                <label for="brightness">Brightness</label>
+                <input type="range" id="brightness" name="brightness" min="-100" max="100" value="0">
+                <label for="contrast">Contrast</label>
+                <input type="range" id="contrast" name="contrast" min="-100" max="100" value="0">
+                <label for="grayscale">Grayscale</label>
+                <input type="checkbox" id="grayscale">
+                <button id="apply-enhancement">Apply Enhancement</button>
+            </div>
+            <button id="ocr">Extract Text</button>
+            <div class="dropdown">
+                <button class="dropbtn">Export</button>
+                <div class="dropdown-content">
+                    <a href="#" id="export-png">Export as PNG</a>
+                    <a href="#" id="export-jpeg">Export as JPEG</a>
+                    <a href="#" id="export-pdf">Export as PDF</a>
+                </div>
+            </div>
+        </div>
+        <div id="loading" class="hidden">Processing...</div>
+        <div id="output"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.4/dist/tesseract.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
